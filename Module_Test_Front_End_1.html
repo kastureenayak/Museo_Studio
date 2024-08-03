@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Museo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      body {
+        background-color: #1a1c19;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        font-family: "Inter", sans-serif;
+      }
+      .main {
+        width: 95%;
+        margin: auto;
+        margin-top: 10px;
+      }
+      header {
+        border: 2px solid #cac1ae;
+        border-radius: 30px;
+        display: flex;
+        height: 40px;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 100%;
+        padding: 5px;
+        color: #cac1ae;
+        font-size: 15px;
+        max-width: 100%;
+        flex: none;
+      }
+      .nav-elements {
+        display: flex;
+        flex: none;
+        height: 100%;
+        justify-content: center;
+        padding: 0;
+        max-width: 100%;
+      }
+
+      ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 10px;
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        max-width: calc(100%-5px);
+      }
+      ul li {
+        border: 1px solid #cac1ae;
+        border-radius: 30px;
+        padding: 14px;
+        max-width: calc(100%-5px);
+        text-align: center;
+        transition: background-color 0.3s ease;
+      }
+      li:nth-child(1) {
+        background-color: #343124;
+        width: 250px;
+      }
+      li:nth-child(n + 2):hover {
+        background-color: #e0d6c2;
+        cursor: pointer;
+        color: black;
+      }
+      .contact {
+        border: 1px solid #cac1ae;
+        border-radius: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        max-width: calc(100%-5px);
+        height: 100%;
+        transition: background-color 0.3s ease;
+      }
+      .contact:hover {
+        background-color: #e0d6c2;
+        color: black;
+        cursor: pointer;
+      }
+
+      .main-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1.5fr;
+        gap: 10px;
+        padding: 10px;
+      }
+      .items {
+        padding: 10px;
+        border-radius: 20px;
+      }
+      .heading2 {
+        color: #342415;
+        font-weight: 800;
+        font-size: 28px;
+      }
+      .underline {
+        text-decoration: underline;
+      }
+      .item-one {
+        grid-row: span 2;
+        background-color: #e0d6c2;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+      }
+      .item-one-image {
+        height: 600px;
+        width: 100%;
+        object-fit: cover;
+      }
+      .item-one-image,
+      .item-two-image,
+      .item-three-image,
+      .item-four-image {
+        border-radius: 20px;
+      }
+      .item-two {
+        grid-column: span 2;
+        background-color: #8f8868;
+        /* height: 60%; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* align-items: flex-start; */
+        /* height: auto;
+        justify-content: flex-end;
+        width:100%;
+        height: 100%; */
+      }
+      .one {
+        flex: 1;
+      }
+      .item-two-content {
+        display: flex;
+
+        justify-content: space-between;
+        /* height: 100%; */
+        align-items: center;
+      }
+
+      .item-two-image {
+        /* width: 100%;
+        height: 100%; */
+        flex: 1;
+        display: flex;
+        align-items: center;
+      }
+      .item-two-image img {
+        width: 90%;
+        height: 200px;
+        object-fit: cover;
+      }
+      .item-three {
+        background-color: #976c54;
+        /* height: 70%; */
+      }
+      .item-three-image {
+        height: 180px;
+        width: 100%;
+        object-fit: cover;
+      }
+      .portrait-heading {
+        display: flex;
+        justify-content: space-around;
+        color: #342415;
+      }
+      .portrait-heading .big-dot {
+        font-size: 70px;
+        font-weight: 1000;
+
+        padding: 0;
+        letter-spacing: -8px;
+
+        margin-top: 10px;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .item-four {
+        background-color: #b5a38d;
+      }
+      .header-and-image {
+        display: flex;
+        justify-content: space-between;
+      }
+      .item-four-image {
+        height: 100px;
+        width: 100px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+      .domain {
+        display: flex;
+        justify-content: space-between;
+      }
+      footer {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: 50px;
+        border-top: 1px solid black;
+      }
+      .changed {
+        display: none;
+      }
+      .circle-p {
+        color: #342415;
+        font-size: 18px;
+        font-weight: 400;
+        border-radius: 20px;
+        border: 1px solid #342415;
+        display: inline-block;
+        padding: 5px;
+      }
+      .item-two-image {
+        overflow: hidden;
+      }
+
+      img {
+        transition: transform 0.8s ease;
+        overflow: hidden;
+      }
+      .items:hover img {
+        transform: scale(1.08);
+      }
+      footer p i {
+        transition: transform 0.3s ease;
+      }
+      .items:hover footer p i {
+        transform: scale(1.5);
+      }
+      .vintage-img {
+        border-radius: 100%;
+        overflow: hidden;
+      }
+      .items {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 10px;
+      }
+      .line-on-hover {
+        display: inline-block;
+        position: relative;
+        font-size: 60px;
+      }
+      .line-on-hover:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: 0px;
+        left: 0;
+        background-color: #342415;
+        transform-origin: bottom left;
+        transition: transform 0.25s ease-out;
+      }
+      .item-three:hover .line-on-hover:after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+      .domain {
+        border-top: 3px solid #342415;
+        border-bottom: 3px solid #342415;
+
+        margin-top: 30px;
+      }
+      .domain p:last-child {
+        font-weight: bold;
+      }
+      .line {
+        border: none;
+        border-top: 1px solid #342415;
+        color: #342415;
+        background-color: #342415;
+        height: 1px;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 50px;
+      }
+
+      @media (max-width: 840px) {
+        .nav-elements {
+          width: 80%;
+        }
+        nav,
+        ul {
+          width: 100%;
+          text-align: center;
+        }
+        li {
+          display: none;
+        }
+        li:nth-child(1) {
+          display: list-item;
+          width: 100%;
+          background-color: #343124;
+        }
+        .original {
+          display: none;
+        }
+        .changed {
+          display: block;
+        }
+        .main {
+          width: 95%;
+        }
+        .main-container {
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+          width: 100%;
+        }
+        .item-one,
+        .item-two {
+          height: 400px;
+          grid-column: span 4;
+        }
+        .item-one-image {
+          height: 230px;
+        }
+        .item-three,
+        .item-four {
+          grid-column: span 2;
+        }
+      }
+      .img-div {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        border-radius: 20px;
+      }
+      .vintage-img {
+        border-radius: 100%;
+        transition: transform 0.1s;
+      }
+      .vintage-img :hover {
+        transform: scale(1.1);
+      }
+
+      @media (max-width: 540px) {
+        .item-three,
+        .item-four {
+          grid-column: span 4;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <header>
+        <div class="nav-elements">
+          <nav>
+            <ul>
+              <li>Museo Sans</li>
+              <li>Collections</li>
+              <li>Our Mission</li>
+              <li>Events</li>
+            </ul>
+          </nav>
+        </div>
+        <div class="contact">
+          <p class="original">Contact Now</p>
+          <p class="changed">Menu</p>
+        </div>
+      </header>
+      <div class="main-container">
+        <div class="items item-one">
+          <div>
+            <p class="circle-p">CONGREVE STREET</p>
+          </div>
+
+          <h2 class="heading2">
+            Birmingham <span class="underline">Museums.</span>
+          </h2>
+          <div style="margin: 0; padding: 0; overflow: hidden" class="img-div">
+            <img
+              class="item-one-image"
+              src="https://images.unsplash.com/photo-1577083288073-40892c0860a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=5122&q=80"
+            />
+          </div>
+          <footer>
+            <p>GET STARTED</p>
+            <p><i class="fa-solid fa-arrow-right"></i></p>
+          </footer>
+        </div>
+        <div class="items item-two">
+          <div class="item-two-content">
+            <div class="one">
+              <div>
+                <p class="circle-p">EUROPEANA</p>
+              </div>
+
+              <h2 class="heading2">A Woman Slicing Bread</h2>
+              <p>
+                DATE: 1800. INSTITUTION: RIJKSMUSEUM. PROVIDER: RIJKSMUSEUM.
+                PROVIDING COUNTRY: NETHERLANDS. PUBLIC DOMAIN. PHOTO BY
+                EUROPEANA.
+              </p>
+            </div>
+            <div class="item-two-image">
+              <img
+                style="border-radius: 20px"
+                src="https://images.unsplash.com/photo-1583934555920-8a26b7d75598?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2016&q=80"
+              />
+            </div>
+          </div>
+          <footer>
+            <p>GET STARTED</p>
+            <p><i class="fa-solid fa-arrow-right"></i></p>
+          </footer>
+        </div>
+        <div class="items item-three">
+          <div class="img-div">
+            <img
+              class="item-three-image"
+              src="https://storage.googleapis.com/studio-design-asset-files/projects/rROnRpBdOA/s-1308x804_v-fms_webp_32129183-71f9-43a5-a99d-13af27b1ca01_middle.webp"
+            />
+          </div>
+          <div class="portrait-heading">
+            <h1 class="heading1 line-on-hover">Portrait</h1>
+            <h1 class="big-dot">...</h1>
+          </div>
+          <p>
+            PORTRAIT OF MARITGE CLAESDR VOOGHT. DATE: 1639. INSTITUTION:
+            RIJKSMUSEUM. PROVIDER: RIJKSMUSEUM. PROVIDING COUNTRY: NETHERLANDS.
+            PUBLIC DOMAIN
+          </p>
+          <footer>
+            <p>GET STARTED</p>
+            <p><i class="fa-solid fa-arrow-right"></i></p>
+          </footer>
+        </div>
+
+        <div class="items item-four">
+          <div class="header-and-image">
+            <div>
+              <p class="circle-p">EUROPEANA</p>
+            </div>
+
+            <div class="vintage-img">
+              <img
+                class="item-four-image"
+                src="https://images.unsplash.com/photo-1583934555852-537536e49071?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1681&q=80"
+              />
+            </div>
+          </div>
+          <h2 class="heading2">
+            Vintage <span class="underline">Painting.</span>
+          </h2>
+          <p>
+            PORTRAIT OF A MAN. DATE: 1648. INSTITUTION: RIJKSMUSEUM. PROVIDER:
+            RIJKSMUSEUM. PROVIDING COUNTRY: NETHERLANDS. PUBLIC DOMAIN
+          </p>
+          <div class="domain">
+            <p>public domain</p>
+            <p>NETHERLANDS</p>
+          </div>
+          <hr class="line" />
+          <footer>
+            <p>GET STARTED</p>
+            <p><i class="fa-solid fa-arrow-right"></i></p>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
